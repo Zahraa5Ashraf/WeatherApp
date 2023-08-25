@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:weatherapp/model/currentweather.dart';
 import 'package:weatherapp/service/weatherRepo.dart';
-
 import '../model/forcastfive.dart';
 
 class HomeController extends GetxController{
