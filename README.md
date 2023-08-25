@@ -1,7 +1,7 @@
 # WeatherApp
  
  Simple weather app using GetX and MVC structure and OpenWeatherMap, i learned this app through a youtube course by Sec it Developers 
- check their channel -> [here]([https://pub.dev/](https://www.youtube.com/@SecitDevelopers))
+ check their channel -> [here]([https://www.youtube.com/@SecitDevelopers])
  
 
 ## Requirements
