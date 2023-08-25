@@ -1,19 +1,15 @@
-class Cloud{
-  int? all;
+class Cloud {
+  final int? all;
 
-  Cloud({ this.all});
+  Cloud({this.all});
 
-  factory Cloud.fromJson(Map<String, dynamic> json) {
+  factory Cloud.fromJson(dynamic json) {
+    if (json == null) {
+      return Cloud();
+    }
+
     return Cloud(
-      all: int.parse(json["all"]),
+      all: json['all'],
     );
   }
-
-  Map<String, dynamic> toJson() {
-    return {
-      "all": this.all,
-    };
-  }
-
-//
 }

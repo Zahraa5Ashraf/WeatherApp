@@ -1,35 +1,23 @@
-class Sys{
-  /*
-   "type": 1,
-        "id": 2514,
-        "country": "EG",
-        "sunrise": 1692847641,
-        "sunset": 1692894484
-  * */
-  int? type,id,sunrise,sunset;
-  String? country;
+class Sys {
+  final int? type;
+  final int? id;
+  final String? country;
+  final int? sunrise;
+  final int? sunset;
 
-  Sys({ this.type,  this.id,  this.sunrise,  this.sunset,  this.country});
+  Sys({this.type, this.id, this.country, this.sunrise, this.sunset});
 
-  factory Sys.fromJson(Map<String, dynamic> json) {
+  factory Sys.fromJson(dynamic json) {
+    if (json == null) {
+      return Sys();
+    }
+
     return Sys(
-      type: int.parse(json["type"]),
-      id: json["id"],
-      sunrise: json["sunrise"],
-      sunset: json["sunset"],
-      country: json["country"],
+      type: json['type'],
+      id: json['id'],
+      country: json['country'],
+      sunrise: json['sunrise'],
+      sunset: json['sunset'],
     );
   }
-
-  Map<String, dynamic> toJson() {
-    return {
-      "type": this.type,
-      "id": this.id,
-      "sunrise": this.sunrise,
-      "sunset": this.sunset,
-      "country": this.country,
-    };
-  }
-
-//
 }

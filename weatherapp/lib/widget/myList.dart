@@ -3,13 +3,10 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../constant/images.dart';
-import '../controller/HomeController.dart';
+import '../controller/homecontroller.dart';
 import '../model/currentweather.dart';
 
-
-
 class MyList extends GetView<HomeController> {
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,11 +14,10 @@ class MyList extends GetView<HomeController> {
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) =>
-            const VerticalDivider(
-              color: Colors.transparent,
-              width: 5,
-            ),
+        separatorBuilder: (context, index) => const VerticalDivider(
+          color: Colors.transparent,
+          width: 5,
+        ),
         itemCount: controller.fiveCitiesList.length,
         itemBuilder: (context, index) {
           CurrentWeather? data;
@@ -36,55 +32,40 @@ class MyList extends GetView<HomeController> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
-                mainAxisAlignment:
-                MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    (data != null)
-                        ? '${data.name}'
-                        : '',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
-                        .copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black45,
-                      fontFamily: 'flutterfonts',
-                    ),
+                    (data != null) ? '${data.name}' : '',
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black45,
+                          fontFamily: 'flutterfonts',
+                        ),
                   ),
                   Text(
                     (data != null)
-                        ? '${(data.main!.temp !- 273.15).round().toString()}\u2103'
+                        ? '${(data.main!.temp! - 273.15).round().toString()}\u2103'
                         : '',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
-                        .copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black45,
-                      fontFamily: 'flutterfonts',
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black45,
+                          fontFamily: 'flutterfonts',
+                        ),
                   ),
                   SizedBox(
                     width: 50,
                     height: 50,
-                    child: LottieBuilder.asset(
-                        Images.cloudy),
+                    child: LottieBuilder.asset(Images.cloudy),
                   ),
                   Text(
-                    (data != null)
-                        ? '${data.weather![0].description}'
-                        : '',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
-                        .copyWith(
-                      color: Colors.black45,
-                      fontFamily: 'flutterfonts',
-                      fontSize: 14,
-                    ),
+                    (data != null) ? '${data.weather![0].description}' : '',
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Colors.black45,
+                          fontFamily: 'flutterfonts',
+                          fontSize: 14,
+                        ),
                   ),
                 ],
               ),

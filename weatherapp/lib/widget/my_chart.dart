@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:weatherapp/model/forcastfive.dart';
 
-import '../controller/HomeController.dart';
+import '../controller/homecontroller.dart';
 
 
 class MyChart extends GetView<HomeController> {

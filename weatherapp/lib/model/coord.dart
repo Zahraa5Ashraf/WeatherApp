@@ -1,19 +1,14 @@
 class Coord {
-  double? lon;
-  double? lat;
+  final double? lon;
+  final double? lat;
 
-  Coord({  this.lat,  this.lon});
+  Coord({this.lon, this.lat});
 
-  factory Coord.fromJson(Map<String, dynamic> json) {
-    return Coord(
-      lon: double.parse(json["lon"]),
-      lat: double.parse(json["lat"]),
-    );
-  }
-  Map<String, dynamic> toJson() {
-    return {
-      "lon": lon,
-      "lat": lat,
-    };
+  factory Coord.fromJson(dynamic json) {
+    if (json == null) {
+      return Coord();
+    }
+
+    return Coord(lon: json['lon'], lat: json['lat']);
   }
 }

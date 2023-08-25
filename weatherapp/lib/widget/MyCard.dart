@@ -3,17 +3,15 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import '../constant/images.dart';
-import '../controller/HomeController.dart';
+import '../controller/homecontroller.dart';
 
 class MyCard extends GetView<HomeController> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          colorFilter:
-          ColorFilter.mode(Colors.black38, BlendMode.darken),
+          colorFilter: ColorFilter.mode(Colors.black38, BlendMode.darken),
           image: AssetImage(
             'assets/images/cloud-in-blue-sky.jpg',
           ),
@@ -91,29 +89,26 @@ class MyCard extends GetView<HomeController> {
                           borderRadius: BorderRadius.circular(25),
                         ),
                         child: Column(
-                          crossAxisAlignment:
-                          CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Container(
                               padding: const EdgeInsets.only(
                                   top: 15, left: 20, right: 20),
                               child: Column(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Center(
-                                    child: Text('${controller.currentWeather.name}',
+                                    child: Text(
+                                      '${controller.currentWeather.name}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall!
                                           .copyWith(
-                                        color: Colors.black45,
-                                        fontSize: 24,
-                                        fontWeight:
-                                        FontWeight.bold,
-                                        fontFamily:
-                                        'flutterfonts',
-                                      ),
+                                            color: Colors.black45,
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'flutterfonts',
+                                          ),
                                     ),
                                   ),
                                   Center(
@@ -125,11 +120,10 @@ class MyCard extends GetView<HomeController> {
                                           .textTheme
                                           .bodySmall!
                                           .copyWith(
-                                        color: Colors.black45,
-                                        fontSize: 16,
-                                        fontFamily:
-                                        'flutterfonts',
-                                      ),
+                                            color: Colors.black45,
+                                            fontSize: 16,
+                                            fontFamily: 'flutterfonts',
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -137,8 +131,7 @@ class MyCard extends GetView<HomeController> {
                             ),
                             const Divider(),
                             Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Container(
                                   padding: const EdgeInsets.only(left: 50),
@@ -150,37 +143,32 @@ class MyCard extends GetView<HomeController> {
                                             .textTheme
                                             .bodySmall!
                                             .copyWith(
-                                          color: Colors.black45,
-                                          fontSize: 22,
-                                          fontFamily:
-                                          'flutterfonts',
-                                        ),
+                                              color: Colors.black45,
+                                              fontSize: 22,
+                                              fontFamily: 'flutterfonts',
+                                            ),
                                       ),
                                       const SizedBox(height: 10),
-                                      Text('${(controller.currentWeather.main!.temp! - 273.15).round().toString()}\u2103',
+                                      Text(
+                                        '${(controller.currentWeather.main!.temp! - 273.15).round().toString()}\u2103',
                                         style: Theme.of(context)
                                             .textTheme
                                             .displayMedium!
                                             .copyWith(
-                                            color: Colors.black45,
-                                            fontFamily:
-                                            'flutterfonts'),
+                                                color: Colors.black45,
+                                                fontFamily: 'flutterfonts'),
                                       ),
                                       Text(
-                                        'min: ${(controller.currentWeather.main!.temp_min! - 273.15).
-                                        round().toString()}\u2103 / max: ${(controller.currentWeather.main!.temp_max! - 273.15)
-                                            .round().toString()}\u2103',
+                                        'min: ${(controller.currentWeather.main!.temp_min! - 273.15).round().toString()}\u2103 / max: ${(controller.currentWeather.main!.temp_max! - 273.15).round().toString()}\u2103',
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodySmall!
                                             .copyWith(
-                                          color: Colors.black45,
-                                          fontSize: 14,
-                                          fontWeight:
-                                          FontWeight.bold,
-                                          fontFamily:
-                                          'flutterfonts',
-                                        ),
+                                              color: Colors.black45,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'flutterfonts',
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -188,14 +176,13 @@ class MyCard extends GetView<HomeController> {
                                 Container(
                                   padding: const EdgeInsets.only(right: 20),
                                   child: Column(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       SizedBox(
                                         width: 120,
                                         height: 120,
-                                        child: LottieBuilder.asset(
-                                            Images.cloudy),
+                                        child:
+                                            LottieBuilder.asset(Images.cloudy),
                                       ),
                                       Text(
                                         'wind ${controller.currentWeather.wind!.speed} m/s',
@@ -203,13 +190,11 @@ class MyCard extends GetView<HomeController> {
                                             .textTheme
                                             .bodySmall!
                                             .copyWith(
-                                          color: Colors.black45,
-                                          fontSize: 14,
-                                          fontWeight:
-                                          FontWeight.bold,
-                                          fontFamily:
-                                          'flutterfonts',
-                                        ),
+                                              color: Colors.black45,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'flutterfonts',
+                                            ),
                                       ),
                                     ],
                                   ),

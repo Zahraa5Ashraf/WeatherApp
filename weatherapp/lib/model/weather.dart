@@ -1,31 +1,20 @@
-class Weather{
-  int? id;
-  String? main, description, icon;
+class Weather {
+  final int? id;
+  final String? main;
+  final String? description;
+  final String? icon;
 
-  Weather(
-  {
-     this.description,  this.icon, this.id,  this.main,
-}
-);
+  Weather({this.id, this.main, this.description, this.icon});
 
-  Map<String, dynamic> toJson() {
-    return {
-      "id": this.id,
-      "main": this.main,
-      "description": this.description,
-      "icon": this.icon,
-    };
-  }
+  factory Weather.fromJson(dynamic json) {
+    if (json == null) {
+      return Weather();
+    }
 
-  factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-      id: int.parse(json["id"]),
-      main: json["main"],
-      description: json["description"],
-      icon: json["icon"],
-    );
+        id: json['id'],
+        main: json['main'],
+        description: json['description'],
+        icon: json['icon']);
   }
-//
-
-//
 }

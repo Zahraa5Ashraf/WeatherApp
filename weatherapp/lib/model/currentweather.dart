@@ -5,55 +5,56 @@ import 'package:weatherapp/model/main_weather.dart';
 import 'package:weatherapp/model/sys.dart';
 import 'package:weatherapp/model/coord.dart';
 
-
-class CurrentWeather{
-
-  String? base,name;
-  int? visibility,dt,timezone,id,cod;
-  Coord? coord;
-  Cloud? clouds;
-  MainWeather? main;
-  Sys? sys;
-  Wind? wind;
-  List<Weather>? weather;
-
+class CurrentWeather {
+  final Coord? coord;
+  final List<Weather>? weather;
+  final String? base;
+  final MainWeather? main;
+  final int? visibility;
+  final Wind? wind;
+  final Cloud? clouds;
+  final int? dt;
+  final Sys? sys;
+  final int? timezone;
+  final int? id;
+  final String? name;
+  final int? cod;
 
   CurrentWeather(
-  {
-     this.base,
-     this.name,
-     this.visibility,
-     this.dt,
-     this.timezone,
-     this.id,
-     this.cod,
-     this.coord,
-     this.clouds,
-     this.main,
-     this.sys,
-     this.wind,
-     this.weather
-}
-    );
+      {this.coord,
+      this.weather,
+      this.base,
+      this.main,
+      this.visibility,
+      this.wind,
+      this.clouds,
+      this.dt,
+      this.sys,
+      this.timezone,
+      this.id,
+      this.name,
+      this.cod});
 
-  factory CurrentWeather.fromJson(Map<String, dynamic> json) {
+  factory CurrentWeather.fromJson(dynamic json) {
+    if (json == null) {
+      return CurrentWeather();
+    }
+
     return CurrentWeather(
-      base: json["base"],
-      name: json["name"],
-      visibility: int.parse(json["visibility"]),
-      dt: json["dt"],
-      timezone: json["timezone"],
-      id: json["id"],
-      cod: json["cod"],
-      coord: Coord.fromJson(json["coord"]),
-      clouds: Cloud.fromJson(json["clouds"]),
-      main: MainWeather.fromJson(json["main"]),
-      sys: Sys.fromJson(json["sys"]),
-      wind: Wind.fromJson(json["wind"]),
-      weather: (json["weather"] as List<dynamic>)
-          .map((item) => Weather.fromJson(item))
-          .toList(),
+      coord: Coord.fromJson(json['coord']),
+      weather:
+          (json['weather'] as List).map((w) => Weather.fromJson(w)).toList(),
+      base: json['base'],
+      main: MainWeather.fromJson(json['main']),
+      visibility: json['visibility'],
+      wind: Wind.fromJson(json['wind']),
+      clouds: Cloud.fromJson(json['clouds']),
+      dt: json['dt'],
+      sys: Sys.fromJson(json['sys']),
+      timezone: json['timezone'],
+      id: json['id'],
+      name: json['name'],
+      cod: json['cod'],
     );
   }
-//
 }

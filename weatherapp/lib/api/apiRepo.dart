@@ -1,29 +1,26 @@
 import 'package:dio/dio.dart';
 
-class ApiRepo{
-  Dio? _dio;
-  String? url;
-  Map<String,dynamic>? payload;
+class ApiRepo {
+  final String? url;
+  final Map<String, dynamic>? payload;
 
-  ApiRepo({ this.url, this.payload});
+  ApiRepo({this.url, this.payload});
 
-  void getData(
-  {
-    Function ()?beforeSend,
-    Function (Map<String,dynamic> data)? onSuccess,
-    Function (dynamic error)? onError,
-}
-      ){
-    _dio!.get(url!,queryParameters: payload ).then((response) {
-      if(onSuccess!=null){
+  Dio _dio = Dio();
+
+  void getData({
+    Function()? beforeSend,
+    Function(dynamic data)? onSuccess,
+    Function(dynamic error)? onError,
+  }) {
+    _dio.get(url!, queryParameters: this.payload).then((response) {
+      if (onSuccess != null) {
         onSuccess(response.data);
-
       }
-
-
-    }).catchError((error){
-      onError!(error);
+    }).catchError((error) {
+      if (onError != null) {
+        onError(error);
+      }
     });
-
   }
 }

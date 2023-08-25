@@ -1,21 +1,20 @@
-class Forcastfive{
-  String? datetime;
-  int? temp;
+class Forcastfive {
+  final String? datetime;
+  final int? temp;
 
-  Forcastfive({ this.datetime,  this.temp});
+  Forcastfive({this.datetime, this.temp});
 
-  Map<String, dynamic> toJson() {
-    return {
-      "datetime": this.datetime,
-      "temp": this.temp,
-    };
-  }
+  factory Forcastfive.fromJson(dynamic json) {
+    if (json == null) {
+      return Forcastfive();
+    }
 
-  factory Forcastfive.fromJson(Map<String, dynamic> json) {
+    var f = json['dt_txt'].split(' ')[0].split('-')[2];
+    var l = json['dt_txt'].split(' ')[1].split(':')[0];
+    var fandl = '$f-$l';
     return Forcastfive(
-      datetime: json["datetime"],
-      temp: int.parse(json["temp"]),
+      datetime: '$fandl',
+      temp: (double.parse(json['main']['temp'].toString()) - 273.15).round(),
     );
   }
-//
 }

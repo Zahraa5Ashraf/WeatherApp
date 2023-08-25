@@ -1,20 +1,17 @@
-class Wind{
-  double? speed, deg;
+class Wind {
+  final double? speed;
+  final int? deg;
 
-  Wind({ this.speed,  this.deg});
+  Wind({this.speed, this.deg});
 
-  Map<String, dynamic> toJson() {
-    return {
-      "speed": this.speed,
-      "deg": this.deg,
-    };
-  }
+  factory Wind.fromJson(dynamic json) {
+    if (json == null) {
+      return Wind();
+    }
 
-  factory Wind.fromJson(Map<String, dynamic> json) {
     return Wind(
-      speed: double.parse(json["speed"]),
-      deg: json["deg"],
+      speed: double.parse(json['speed'].toString()),
+      deg: json['deg'],
     );
   }
-//
 }
